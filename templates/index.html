@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<script>
+    function send(user_command) {
+        let command = document.querySelector('#command');
+        command.value = user_command;
+        let form = document.querySelector('#player_command');
+        form.submit();
+    }
+</script>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <nav class="navbar">
+                <span class="navbar-brand">
+                    {% if turn == "lose" %}
+                    <span class="red">LOSE</span>
+                    {% elif turn == "win" %}
+                    <span class="green">WIN</span>
+                    {% endif %}
+                </span>
+            </nav>
+        </div>
+    </div>
+    {% if turn == "player" %}
+    <form id="player_command" action="/" method="post">
+        <button class="btn btn-primary" type="button" onclick="send('hit')">Hit</button>
+        <button class="btn btn-primary" type="button" onclick="send('stand')">Stand</button>
+        <input type="hidden" value="" id="command" name="command" />
+    </form>
+    {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table>
+                <tr>
+                    <th colspan="{{ player|length }}">Player</th>
+                </tr>
+                <tr>
+                    {% for card in player %}
+                    <td>
+                        <img src="/static/img_trans.gif" class="card {{ card[0] | symbol_literal }} {{ card[1] }}"
+                            width="1" height="1" />
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table>
+                <tr>
+                    <th colspan="{{ dealer|length }}">Dealer</th>
+                </tr>
+                <tr>
+                    {% if turn == "player" %}
+                    <td>
+                        <img src="/static/img_trans.gif"
+                            class="card {{ dealer[0][0] | symbol_literal }} {{ dealer[0][1] }}" width="1" height="1" />
+                    </td>
+                    <td>
+                        <img src="/static/img_trans.gif" class="card three e" width="1" height="1" />
+                    </td>
+                    {% else %}
+                    {% for card in dealer %}
+                    <td>
+                        <img src="/static/img_trans.gif" class="card {{ card[0] | symbol_literal }} {{ card[1] }}"
+                            width="1" height="1" />
+                    </td>
+                    {% endfor %}
+                    {% endif %}
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

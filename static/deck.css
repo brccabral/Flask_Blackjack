@@ -1,0 +1,80 @@
+.card {
+    width: 203px;
+    height: 316px;
+    background: url(gnomangelo_bitmap.png) 0px 0px;
+}
+
+/* suits - Y position */
+.card.c {
+    background-position-y: 0px;
+}
+
+.card.d {
+    background-position-y: -315px;
+}
+
+.card.h {
+    background-position-y: -630px;
+}
+
+.card.s {
+    background-position-y: -945px;
+}
+
+.card.e {
+    background-position-y: -1261px;
+}
+
+
+/* symbol - A,2-10,J,Q,K */
+.card.a {
+    background-position-x: -1px;
+}
+
+.card.two {
+    background-position-x: -204px;
+}
+
+.card.three {
+    background-position-x: -406px;
+}
+
+.card.four {
+    background-position-x: -609px;
+}
+
+.card.five {
+    background-position-x: -811px;
+}
+
+.card.six {
+    background-position-x: -1014px;
+}
+
+.card.seven {
+    background-position-x: -1216px;
+}
+
+.card.eight {
+    background-position-x: -1419px;
+}
+
+.card.nine {
+    background-position-x: -1621px;
+}
+
+.card.ten {
+    background-position-x: -1824px;
+}
+
+.card.j {
+    background-position-x: -2026px;
+}
+
+.card.q {
+    background-position-x: -2228px;
+}
+
+.card.k {
+    background-position-x: -2431px;
+}
