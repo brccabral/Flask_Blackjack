@@ -39,8 +39,7 @@
                 <tr>
                     {% for card in player %}
                     <td>
-                        <img src="/static/img_trans.gif" class="card {{ card[0] | symbol_literal }} {{ card[1] }}"
-                            width="1" height="1" />
+                        <div class="card {{ card[0] | symbol_literal }} {{ card[1] }}"></div>
                     </td>
                     {% endfor %}
                 </tr>
@@ -59,17 +58,15 @@
                 <tr>
                     {% if turn == "player" %}
                     <td>
-                        <img src="/static/img_trans.gif"
-                            class="card {{ dealer[0][0] | symbol_literal }} {{ dealer[0][1] }}" width="1" height="1" />
+                        <div class="card {{ dealer[0][0] | symbol_literal }} {{ dealer[0][1] }}"></div>
                     </td>
                     <td>
-                        <img src="/static/img_trans.gif" class="card three e" width="1" height="1" />
+                        <div class="card three e"></div>
                     </td>
                     {% else %}
                     {% for card in dealer %}
                     <td>
-                        <img src="/static/img_trans.gif" class="card {{ card[0] | symbol_literal }} {{ card[1] }}"
-                            width="1" height="1" />
+                        <div class="card {{ card[0] | symbol_literal }} {{ card[1] }}"></div>
                     </td>
                     {% endfor %}
                     {% endif %}
